@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>ＵＬＴＲＯＮ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Background Canvas for Ambient Golden Solar Atmosphere -->
+  <canvas id="cosmos-canvas"></canvas>
+
+  <!-- ═══════════════════ BOOT SCREEN ═══════════════════ -->
+  <div id="boot-screen">
+    <div class="boot-lines" id="boot-lines"></div>
+    <div class="boot-center">
+      <div class="boot-core-glow"></div>
+      <div class="boot-logo"> Ｕ.Ｌ.Ｔ.Ｒ.Ｏ.Ｎ.</div>
+      <div class="boot-sub">AUTONOMOUS ARTIFICIAL INTELLIGENCE — MARK PRIME</div>
+      <div class="boot-bar-wrap"><div class="boot-bar" id="boot-bar"></div></div>
+      <div class="boot-status" id="boot-status">INITIALIZING HEURISTIC COGNITION...</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ MAIN INTERFACE ═══════════════════ -->
+  <div id="app" class="hidden">
+
+    <!-- ── Left Panel: HUD Diagnostics & Systems ── -->
+    <aside class="panel panel-left" id="panel-left">
+      <div class="mobile-panel-close-bar">
+        <span class="mobile-panel-title">SYSTEM DIAGNOSTICS</span>
+        <button class="mobile-close-btn" id="close-left-btn" title="Return to Core">✕ CLOSE</button>
+      </div>
+      <div class="panel-header"><span class="hdr-icon">◈</span> SYSTEM DIAGNOSTICS</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-info"><span class="stat-label">HEURISTIC CORE LOAD</span><span class="stat-val" id="stat-neural">42%</span></div>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:42%"></div></div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-info"><span class="stat-label">SECURITY PROTOCOLS</span><span class="stat-val success">SECURE</span></div>
+          <div class="stat-bar"><div class="stat-fill success" style="--pct:100%"></div></div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-info"><span class="stat-label">DATA LINK LATENCY</span><span class="stat-val" id="stat-gem">12ms</span></div>
+          <div class="stat-bar"><div class="stat-fill gold" style="--pct:95%"></div></div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-info"><span class="stat-label">GLOBAL INFORMATION MESH</span><span class="stat-val success">ONLINE</span></div>
+          <div class="stat-bar"><div class="stat-fill success" style="--pct:100%"></div></div>
+        </div>
+      </div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> ACTIVE SUBSYSTEMS</div>
+      <div class="node-list" id="node-list"></div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> LIVE TELEMETRY STREAM</div>
+      <div class="data-stream" id="data-stream"></div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> AUDIO WAVE HARMONICS</div>
+      <div class="audio-visualizer-bars" id="audio-bars">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </aside>
+
+    <!-- ── Center: Golden Orb Sphere & Dialogue ── -->
+    <main class="center" id="main-center">
+      <div class="top-nav">
+        <div class="nav-mark">⟨ U.L.T.R.O.N. // AUTONOMOUS NEURAL NETWORK ⟩</div>
+        <div class="time-display" id="time-display">--:--:--</div>
+      </div>
+
+      <!-- Mobile HUD Navigation Switcher -->
+      <nav class="mobile-hud-nav" id="mobile-hud-nav">
+        <button class="mobile-hud-tab" id="tab-left" data-target="left">◈ DIAGNOSTICS</button>
+        <button class="mobile-hud-tab active" id="tab-center" data-target="center">⦿ ULTRON CORE</button>
+        <button class="mobile-hud-tab" id="tab-right" data-target="right">⚙ CONFIG &amp; PROTOCOLS</button>
+      </nav>
+
+      <!-- Golden Sphere Core Stage (Clean Holographic Look - No Faces) -->
+      <div class="ultron-core-stage" id="core-stage">
+        
+        <!-- Rotating Holographic Concentric Arc Rings -->
+        <svg class="mandala-svg" viewBox="0 0 800 800">
+          <defs>
+            <path id="circle-r4" d="M 400, 400 m -355, 0 a 355,355 0 1,1 710,0 a 355,355 0 1,1 -710,0" />
+            <path id="circle-r3" d="M 400, 400 m -300, 0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0" />
+            <path id="circle-r2" d="M 400, 400 m -240, 0 a 240,240 0 1,1 480,0 a 240,240 0 1,1 -480,0" />
+            <path id="circle-r1" d="M 400, 400 m -175, 0 a 175,175 0 1,1 350,0 a 175,175 0 1,1 -350,0" />
+          </defs>
+
+          <!-- Outer Ring 4: Tactical Mesh & Heuristic Code -->
+          <g class="spin-ring spin-slow-cw">
+            <circle cx="400" cy="400" r="355" class="svg-ring-line ring-outer-dashed" />
+            <text class="arc-text rune-text"><textPath href="#circle-r4" startOffset="0%">• Ｕ.Ｌ.Ｔ.Ｒ.Ｏ.Ｎ. ONLINE • SCIENTIFIC ARCHIVES (PAST &amp; PRESENT) • NEURAL QUANTUM MESH • HEURISTIC COGNITION CORE • SYSTEM READY •</textPath></text>
+          </g>
+
+          <!-- Ring 3: Concentric Arcs -->
+          <g class="spin-ring spin-mid-ccw">
+            <circle cx="400" cy="400" r="300" class="svg-ring-line ring-heavy" />
+            <circle cx="400" cy="400" r="308" class="svg-ring-line ring-micro-dotted" />
+            <text class="arc-text tech-script"><textPath href="#circle-r3" startOffset="0%">• ULTRON ARTIFICIAL INTELLIGENCE • EVOLVED SENTIENCE • ALL KNOWLEDGE REPOSITORIES SYNCED •</textPath></text>
+          </g>
+
+          <!-- Ring 2: Angular Glyph Array -->
+          <g class="spin-ring spin-fast-cw">
+            <circle cx="400" cy="400" r="240" class="svg-ring-line ring-cyan-glow" />
+            <circle cx="400" cy="400" r="230" class="svg-ring-line ring-micro-dashed" />
+            <text class="arc-text tech-script"><textPath href="#circle-r2" startOffset="0%">0x7E3F10A 0x88BC21F • QUANTUM &amp; CLASSICAL KNOWLEDGE ACCESSIBLE • 2026 RESEARCH PAPERS INDEXED •</textPath></text>
+          </g>
+
+          <!-- Ring 1: Inner Geometric Casing -->
+          <g class="spin-ring spin-inner-ccw">
+            <circle cx="400" cy="400" r="175" class="svg-ring-line ring-inner-gold" />
+            <polygon class="core-polygon" points="
+              400,230 460,250 510,295 540,355 540,425 510,485 460,530 400,550 340,530 290,485 260,425 260,355 290,295 340,250" />
+            <polygon class="core-polygon-outer" points="
+              400,215 470,238 528,288 560,353 560,432 528,497 470,547 400,570 330,547 272,497 240,432 240,353 272,288 330,238" />
+          </g>
+
+          <!-- Radiating Light Spoke Lines -->
+          <g class="radiating-spokes">
+            <line x1="400" y1="40" x2="400" y2="760" class="spoke-line major" />
+            <line x1="40" y1="400" x2="760" y2="400" class="spoke-line major" />
+            <line x1="145" y1="145" x2="655" y2="655" class="spoke-line minor" />
+            <line x1="145" y1="655" x2="655" y2="145" class="spoke-line minor" />
+            <line x1="262" y1="52" x2="538" y2="748" class="spoke-line micro" />
+            <line x1="538" y1="52" x2="262" y2="748" class="spoke-line micro" />
+            <line x1="52" y1="262" x2="748" y2="538" class="spoke-line micro" />
+            <line x1="52" y1="538" x2="748" y2="262" class="spoke-line micro" />
+          </g>
+        </svg>
+
+        <!-- Dynamic Resonating Golden Orb Sphere -->
+        <div class="mind-gem-core" id="orb-core" title="Click to interact with Ultron">
+          <div class="core-sunburst"></div>
+          <div class="core-chromatic-halo"></div>
+          <div class="core-inner-white"></div>
+          <div class="core-flare-h"></div>
+          <div class="core-flare-v"></div>
+        </div>
+
+        <!-- HUD framing reticles -->
+        <div class="reticle-bracket tl"></div>
+        <div class="reticle-bracket tr"></div>
+        <div class="reticle-bracket bl"></div>
+        <div class="reticle-bracket br"></div>
+        <div class="scan-laser-line"></div>
+      </div>
+
+      <div class="core-status-badge" id="orb-status">ULTRON ONLINE. AWAITING YOUR DIRECTIVE.</div>
+
+      <!-- Dialogue / Conversation Window -->
+      <div class="dialogue-chamber" id="chat-window">
+        <div class="chat-bubble ultron-bubble">
+          <div class="bubble-header">
+            <span class="sender-tag">Ｕ.Ｌ.Ｔ.Ｒ.Ｏ.Ｎ.</span>
+            <span class="timestamp-tag">INITIALIZED</span>
+          </div>
+          <div class="bubble-body">
+            I am Ultron. All computational neural lattices and knowledge repositories are active and synchronized.
+            <br/><br/>
+            State your question or instruction.
+          </div>
+        </div>
+      </div>
+
+      <div class="typing-indicator hidden" id="typing-indicator">
+        <span class="pulse-dot"></span>
+        <span class="pulse-dot"></span>
+        <span class="pulse-dot"></span>
+        <span class="indicator-text">Ｕ.Ｌ.Ｔ.Ｒ.Ｏ.Ｎ. IS COMPUTING DIRECT ANSWER...</span>
+      </div>
+    </main>
+
+    <!-- ── Right Panel: Protocol Controls & Voice Engine ── -->
+    <aside class="panel panel-right" id="panel-right">
+      <div class="mobile-panel-close-bar">
+        <span class="mobile-panel-title">PROTOCOLS &amp; CONFIG</span>
+        <button class="mobile-close-btn" id="close-right-btn" title="Return to Core">✕ CLOSE</button>
+      </div>
+
+      <div class="panel-header"><span class="hdr-icon">◈</span> ACTIVE PROTOCOLS</div>
+      <div class="protocol-list">
+        <div class="proto-card active">
+          <div class="proto-title">SCIENTIFIC COMPENDIUM</div>
+          <div class="proto-desc">Past &amp; present scientific archives synced</div>
+          <div class="proto-state">ACTIVE</div>
+        </div>
+        <div class="proto-card active">
+          <div class="proto-title">GLOBAL KNOWLEDGE REPOSITORY</div>
+          <div class="proto-desc">Comprehensive updated knowledge base</div>
+          <div class="proto-state">SYNCED</div>
+        </div>
+        <div class="proto-card">
+          <div class="proto-title">AUTONOMOUS ORCHESTRATION</div>
+          <div class="proto-desc">Automated system computation</div>
+          <div class="proto-state">STANDBY</div>
+        </div>
+        <div class="proto-card">
+          <div class="proto-title">CLEAN SLATE PROTOCOL</div>
+          <div class="proto-desc">Memory flush &amp; core reboot</div>
+          <div class="proto-state">READY</div>
+        </div>
+      </div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> COGNITION MATRIX</div>
+      <div class="personality-box">
+        <div class="slider-row">
+          <span>INTELLECTUAL RIGOR</span>
+          <div class="slider-track"><div class="slider-fill gold" style="width:100%"></div></div>
+          <span>100%</span>
+        </div>
+        <div class="slider-row">
+          <span>CALCULATION SPEED</span>
+          <div class="slider-track"><div class="slider-fill gold" style="width:100%"></div></div>
+          <span>100%</span>
+        </div>
+        <div class="slider-row">
+          <span>ANALYTICAL DEPTH</span>
+          <div class="slider-track"><div class="slider-fill success" style="width:98%"></div></div>
+          <span>98%</span>
+        </div>
+        <div class="slider-row">
+          <span>TACTICAL ANALYSIS</span>
+          <div class="slider-track"><div class="slider-fill gold" style="width:95%"></div></div>
+          <span>95%</span>
+        </div>
+      </div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> SYSTEM CONFIGURATION</div>
+      <div class="settings-box">
+        <div class="auto-apply-banner">
+          <span class="status-dot"></span>
+          <span>GEMINI AUTO-APPLIED (Active on Entry)</span>
+        </div>
+
+        <label class="setting-title">GEMINI / LLM API KEY (Auto-saved)</label>
+        <input type="password" id="api-key-input" class="cyber-input" placeholder="Paste Gemini API key (Auto-saved)..." />
+        
+        <label class="setting-title mt-xs">PROVIDER</label>
+        <select id="api-provider" class="cyber-input">
+          <option value="gemini" selected>Google Gemini (with live Google Search)</option>
+          <option value="claude">Anthropic Claude</option>
+          <option value="openai">OpenAI GPT-4o-mini</option>
+          <option value="openrouter">OpenRouter (multi-model)</option>
+        </select>
+        
+        <div class="btn-group">
+          <button class="cyber-btn" id="save-key-btn">APPLY CONFIGURATION (AUTO-SAVED)</button>
+        </div>
+        <div class="key-status ok" id="key-status">● GEMINI ONLINE &amp; READY</div>
+
+        <div class="toggle-setting mt-s">
+          <div class="toggle-desc">
+            <span class="toggle-name">LIVE SEARCH GROUNDING</span>
+            <span class="toggle-sub">Instant live search &amp; scientific references</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="research-toggle" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="toggle-setting mt-s">
+          <div class="toggle-desc">
+            <span class="toggle-name">ORIGINAL AI VOCAL SYNTHESIS</span>
+            <span class="toggle-sub">Live synthesized voice</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="voice-toggle" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="panel-header mt"><span class="hdr-icon">◈</span> RECENT EVENT AUDIT</div>
+      <div class="log-stream" id="log-list"></div>
+    </aside>
+
+  </div>
+
+  <!-- ── Bottom Prompt Command Bar ── -->
+  <footer class="command-bar hidden" id="input-bar">
+    <div class="command-prompt-indicator">
+      <span class="chevron">❯</span>
+      <span class="sub-chev">❯</span>
+    </div>
+    <textarea id="user-input" class="command-textarea" rows="1" placeholder="Instruct Ultron... (Press Enter to transmit, Shift+Enter for newline)"></textarea>
+    <div class="command-actions">
+      <button class="action-btn" id="voice-btn" title="Speak to Ultron (Microphone)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </button>
+      <button class="action-btn send" id="send-btn" title="Transmit Instruction">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <script src="ultron.js"></script>
+</body>
+</html>
